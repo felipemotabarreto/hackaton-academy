@@ -1,0 +1,27 @@
+.product-card {
+    border: 1px solid gray;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.name {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.description {
+    margin: 0;
+}
+
+.image {
+    max-height: 200px;
+    width: auto;
+    object-fit: contain;
+}
+
+.price {
+    margin-bottom: 15px;
+}

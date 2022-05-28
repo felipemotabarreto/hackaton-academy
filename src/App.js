@@ -1,24 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { listProductsUrl } from "./config/endpoints";
+import "./App.css";
+import Product from "./components/Product";
 
 function App() {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    axios
+      .request({
+        method: "GET",
+        url: listProductsUrl,
+      })
+      .then(({ data }) => {
+        setProducts(
+          data.map(({ id, title, body_html, image, variants }) => ({
+            id,
+            name: title,
+            description: body_html,
+            image: image.src,
+            price: variants[0].price,
+          }))
+        );
+      });
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1>OSF Academy Rocks</h1>
+      <ul className="product-list">
+        {products.map((product) => (
+          <li key={product.id}>
+            <Product {...product} />
+          </li>
+        ))}
+      </ul>
+      <p>Product count: {products.length}</p>
+    </>
   );
 }
 
