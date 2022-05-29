@@ -38,7 +38,7 @@ function App() {
       </ul>
       <br />
       <br />
-      <p className="count">Product count: {products.length}</p>
+      <p className="count">count: {products.length}</p>
     </>
   );
 }

@@ -4,7 +4,7 @@ const Product = ({ name, description, image, price }) => {
   return (
     <div className="product-card">
       <p className="name">{name}</p>
-      <p className="description">{description}</p>
+      <p className="desc">{description}</p>
       <img className="image" src={image} alt="product" />
       <p className="price">{price}</p>
     </div>
