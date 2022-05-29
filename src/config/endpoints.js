@@ -1,1 +1,1 @@
-export const listProductsUrl = "http://localhost:3000/api/shopify/products";
+export const listProductsUrl = `${process.env.REACT_APP_HOST}/api/shopify/products`;
