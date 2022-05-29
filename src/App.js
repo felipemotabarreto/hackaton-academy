@@ -28,7 +28,7 @@ function App() {
 
   return (
     <>
-      <h1>OSF Academy Rocks</h1>
+      <h1>OSF Academy Rock</h1>
       <ul className="product-list">
         {products.map((product) => (
           <li key={product.id}>
